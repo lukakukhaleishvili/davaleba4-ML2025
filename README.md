@@ -12,7 +12,13 @@ For this project, I ran the script on a Wi-Fi interface. Specifically, on Window
 python davaleba4.py -i Wi-Fi
 This command specifies the Wi-Fi network interface to monitor. It is important to ensure that the Wi-Fi interface is active and properly configured to allow packet sniffing. If you're using a different network interface, make sure to replace Wi-Fi with the correct interface name for your system.
   
+## is_tor_over_vpn Function
+The is_tor_over_vpn function checks whether a captured packet could potentially be part of a TOR over VPN communication based on matching ports. If such traffic is detected, the function flags it as suspicious and returns True.
 
-Limitations
- - Simplified detection: This script only checks for common TOR ports. It is not a comprehensive detection tool and will miss more sophisticated methods of TOR-over-VPN traffic obfuscation
+## sniff_packets Function
+The sniff_packets function starts packet sniffing on the specified network interface and analyzes each packet using the is_tor_over_vpn function.
+
+##  Main Script Execution
+This block of code allows the user to run the script from the command line and specify the network interface on which to capture packets. Once the interface is selected, the packet sniffing process starts.
+
 
